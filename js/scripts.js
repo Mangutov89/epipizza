@@ -26,6 +26,12 @@ Pizza.prototype.calculatePizzaSize = function() {
     return this.price += 2;
   }
 }
+
+Pizza.prototype.total =function() {
+  calculatePizzaTopping(this.pizzaTopping);
+  calculatePizzaSize(this.pizzaSize);
+}
+
 // UI
 $(document).ready(function() {
   $("#pizzaorder").submit(function(event) {
@@ -34,6 +40,6 @@ $(document).ready(function() {
     var pizzaTopping = $("#pizzatypes").val();
     var pizzaSize = $("#pizzasizes").val();
     var newPizzaOrder = new Pizza(userName, pizzaTopping, pizzaSize);
-    $("#output").text(userName + " your pizza will be $" + newPizzaOrder.calculatePizzaTopping());
+    $("#output").text(userName + " your pizza will be $" + newPizzaOrder.total());
   });
 });

@@ -9,42 +9,38 @@
     <title>EpiPizza</title>
   </head>
   <body>
-
     <div class="container">
-      <h1>Welcome to EpiPizza</h1>
-      <form id="pizzaorder">
-        <div class="line">
-          <label for="nameInput">Enter your name:</label>
-          <input id="nameInput">
+      <h1>EpiPizza</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <hr>
+          <h2>Order a Pizza!</h2>
+          <form id="new-log">
+
+            <div class="form-group">
+              <label for="name">Enter your Name: </label>
+              <input type="text" class="form-control" id="name">
+            </div>
+
+            <button type="submit" class="btn-primary">Complete Order</button>
+          </form>
+          <hr>
+          <h2>Order:</h2>
+          <ul id="Orders">
+          </ul>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="line">
-              <select class="form-control" id="pizzatypes">
-                <option value="1">Cheese</option>
-                <option value="2">Pepperoni</option>
-                <option value="3">Meat lovers</option>
-                <option value="4">Supreme</option>
-              </select>
+        <div class="col-md-6">
+          <div id="show-orders">
+            <p>City traveled: <span class="city-destination"></span></p>
+            <p>Country traveled: <span class="country-destination"></span></p>
+            <p>Date: <span class="date-travel"></span></p>
+            <p>Trip duration: <span class="duration-trip"></span></p>
+            <p>Special Landmark: <span class="landmark"></span></p>
+            <p>Notes: <span class="notes"></span></p>
+            <div id="buttons">
             </div>
           </div>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="line">
-              <select class="form-control" id="pizzasizes">
-                <option value="1">Small</option>
-                <option value="2">Medium</option>
-                <option value="3">Large</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <button type="submit" name="button" class="btn-info">Proceed to Checkout</button>
-      </form>
-      <div id="output">
       </div>
     </div>
   </body>

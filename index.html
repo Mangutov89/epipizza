@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.css" rel ="stylesheet" type="text/css" media="all">
+    <link href="css/styles.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>EpiPizza</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Welcome to EpiPizza</h1>
+      <form id="pizzaorder">
+        <div class="line">
+          <label for="nameInput">Enter your name:</label>
+          <input id="nameInput">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="line">
+              <select class="form-control" id="pizzatypes">
+                <option value="1">Cheese</option>
+                <option value="2">Pepperoni</option>
+                <option value="3">Meat lovers</option>
+                <option value="4">Supreme</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="line">
+              <select class="form-control" id="pizzasizes">
+                <option value="1">Small</option>
+                <option value="2">Medium</option>
+                <option value="3">Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" name="button" class="btn-info">Proceed to Checkout</button>
+      </form>
+      <div id="output">
+      </div>
+    </div>
+  </body>
+</html>

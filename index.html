@@ -15,13 +15,62 @@
         <div class="col-md-6">
           <hr>
           <h2>Order a Pizza!</h2>
-          <form id="new-log">
+          <form id="new-pizza">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h3>Select Pizza Size:</h3>
+                    <select id="pizza-size">
+                      <option value="Small">Small</option>
+                      <option value="Medium">Medium +$2</option>
+                      <option value="Large">Large +$4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
-            <div class="form-group">
-              <label for="name">Enter your Name: </label>
-              <input type="text" class="form-control" id="name">
+              <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h3>Select Pizza Crust:</h3>
+                    <select id="pizza-crust">
+                      <option value="Normal">Normal</option>
+                      <option value="Thin">Thin Crust</option>
+                      <option value="Stuffed">Stuffed Crust</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h3>Select Pizza Type</h3>
+                    <select id="pizza-size">
+                      <option value="Cheese">Cheese</option>
+                      <option value="Pepperoni">Pepperoni</option>
+                      <option value="Meat">Meat Lovers</option>
+                      <option value="Supreme">Supreme</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
 
+              <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h3>Select Additional items</h3>
+                    <select id="pizza-crust">
+                      <option value="Soda">Soda</option>
+                      <option value="Ice">Ice Cream</option>
+                      <option value="Garlic">Garlic Bread</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
             <button type="submit" class="btn-primary">Complete Order</button>
           </form>
           <hr>
@@ -29,15 +78,16 @@
           <ul id="Orders">
           </ul>
         </div>
-        <div class="col-md-6">
-          <div id="show-orders">
-            <p>City traveled: <span class="city-destination"></span></p>
-            <p>Country traveled: <span class="country-destination"></span></p>
-            <p>Date: <span class="date-travel"></span></p>
-            <p>Trip duration: <span class="duration-trip"></span></p>
-            <p>Special Landmark: <span class="landmark"></span></p>
-            <p>Notes: <span class="notes"></span></p>
-            <div id="buttons">
+        <div class="row">
+          <div class="col-md-6">
+            <div id="show-orders">
+              <p>Pizza Size: <span class="pizza-size"></span></p>
+              <p>Crust: <span class="pizza-crust"></span></p>
+              <p>Pizza Type: <span class="pizza-type"></span></p>
+              <p>Item: <span class="item"></span></p>
+              <p>Total: <span class="total"></span></p>
+              <div id="buttons">
+              </div>
             </div>
           </div>
         </div>

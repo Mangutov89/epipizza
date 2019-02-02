@@ -8,16 +8,16 @@ PizzaOrder.prototype.assignId = function() {
   return this.currentId;
 }
 
-PizzaOrder.prototype.addEntry = function(order){
+PizzaOrder.prototype.addOrder = function(order){
   order.id = this.assignId();
-  this.entries.push(order);
+  this.orders.push(order);
 }
 
 PizzaOrder.prototype.deleteOrder = function(id) {
-  for (var i=0; i< this.pizzas.length; i++) {
-    if (this.pizzas[i]) {
-      if (this.pizzas[i].id == id) {
-        delete this.pizzas[i];
+  for (var i=0; i< this.orders.length; i++) {
+    if (this.orders[i]) {
+      if (this.orders[i].id == id) {
+        delete this.orders[i];
         return true;
       }
     }
@@ -27,10 +27,10 @@ PizzaOrder.prototype.deleteOrder = function(id) {
 
 
 PizzaOrder.prototype.findOrder = function(id) {
-  for (var i=0; i< this.pizzas.length; i++) {
-    if (this.pizzas[i]) {
-      if (this.pizzas[i].id == id) {
-        return this.pizzas[i];
+  for (var i=0; i< this.orders.length; i++) {
+    if (this.orders[i]) {
+      if (this.orders[i].id == id) {
+        return this.orders[i];
       }
     }
   };
@@ -47,6 +47,48 @@ function Pizza(size, crust, type, item) {
 
 Pizza.prototype.fullDestination = function() {
   return this.date + " " + this.country + " " + this.city;
+}
+
+Pizza.prototype.findPriceBySize = function(id) {
+  if (this.size == "Small") {
+    this.price += 0;
+  } else if (this.size == "Medium") {
+    this.price += 2;
+  } else if (this.size == "Large") {
+    this.price += 4;
+  }
+}
+
+Pizza.prototype.findPriceByCrust = function(id) {
+  if (this.crust == "Normal") {
+    this.price += 0;
+  } else if (this.crust == "Thin") {
+    this.price += 2;
+  } else if (this.crust == "Stuffed") {
+    this.price += 4;
+  }
+}
+
+Pizza.prototype.findPriceByType = function(id) {
+  if (this.type == "Cheese") {
+    this.price += 0;
+  } else if (this.type == "Pepperoni") {
+    this.price += 2;
+  } else if (this.type == "Meat") {
+    this.price += 4;
+  } else if (this.type == "Supreme") {
+    this.price += 6;
+  }
+}
+
+Pizza.prototype.findPriceByItem = function(id) {
+  if (this.item == "Soda") {
+    this.price += 1;
+  } else if (this.item == "Ice") {
+    this.price += 2;
+  } else if (this.item == "Garlic") {
+    this.price += 3;
+  }
 }
 
 var pizzaOrder = new PizzaOrder();
@@ -88,14 +130,16 @@ $(document).ready(function() {
   attachOrderListeners();
   $("form#new-pizza").submit(function(event) {
     event.preventDefault();
-    var inputtedCity = $("#new-city-destination").val();
-    var inputtedCountry = $("#new-country-destination").val();
-    var inputtedDate = $("#new-date-travel").val();
-    var inputtedDuration = $("#new-duration-trip").val();
-    var inputtedLandmark = $("#new-landmark").val();
-    var inputtedNote = $("#new-notes").val();
+    var inputSize = $("#pizza-size").val();
+    var inputCrust = $("#pizza-crust").val();
+    var inputType = $("#pizza-type").val();
+    var inputItem = $("#item").val();
 
-    var newOrder = new Pizza(inputtedCity, inputtedCountry, inputtedDate, inputtedDuration, inputtedLandmark, inputtedNote);
+    var newOrder = new Pizza(inputSize, inputCrust, inputType, inputItem);
+    newOrder.findPriceBySize();
+    newOrder.findPriceByCrust();
+    newOrder.findPriceByType();
+    newOrder.findPriceByItem();
     pizzaOrder.addOrder(newOrder);
     displayOrderDetails(pizzaOrder);
     console.log(newOrder);

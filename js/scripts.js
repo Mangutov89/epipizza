@@ -50,43 +50,43 @@ Pizza.prototype.fullDestination = function() {
 }
 
 Pizza.prototype.findPriceBySize = function(id) {
-  if (this.size == "Small") {
+  if (this.size === "Small") {
     this.price += 0;
-  } else if (this.size == "Medium") {
+  } else if (this.size === "Medium") {
     this.price += 2;
-  } else if (this.size == "Large") {
+  } else if (this.size === "Large") {
     this.price += 4;
   }
 }
 
 Pizza.prototype.findPriceByCrust = function(id) {
-  if (this.crust == "Normal") {
+  if (this.crust === "Normal") {
     this.price += 0;
-  } else if (this.crust == "Thin") {
+  } else if (this.crust === "Thin Crust") {
     this.price += 2;
-  } else if (this.crust == "Stuffed") {
+  } else if (this.crust === "Stu=ffed Crust") {
     this.price += 4;
   }
 }
 
 Pizza.prototype.findPriceByType = function(id) {
-  if (this.type == "Cheese") {
+  if (this.type === "Cheese") {
     this.price += 0;
-  } else if (this.type == "Pepperoni") {
+  } else if (this.type === "Pepperoni") {
     this.price += 2;
-  } else if (this.type == "Meat") {
+  } else if (this.type === "Meat Lovers") {
     this.price += 4;
-  } else if (this.type == "Supreme") {
+  } else if (this.type === "Supreme") {
     this.price += 6;
   }
 }
 
 Pizza.prototype.findPriceByItem = function(id) {
-  if (this.item == "Soda") {
+  if (this.item === "Soda") {
     this.price += 1;
-  } else if (this.item == "Ice") {
+  } else if (this.item === "Ice Cream") {
     this.price += 2;
-  } else if (this.item == "Garlic") {
+  } else if (this.item === "Garlic Bread") {
     this.price += 3;
   }
 }
@@ -97,7 +97,7 @@ function displayOrderDetails(orderToDisplay) {
   var orderList = $("ul#orders");
   var htmlForOrderInfo = "";
   orderToDisplay.orders.forEach(function(order) {
-    htmlForOrderInfo += "<li id=" + order.id + ">" + order.size + " and " + order.crust + "</li>";
+    htmlForOrderInfo += "<li id=" + order.id + ">" + order.size + " Pizza " + order.type + "</li>";
   });
   orderList.html(htmlForOrderInfo)
 };
@@ -107,20 +107,20 @@ function attachOrderListeners() {
     showOrders(this.id);
   });
   $("#buttons").on("click", ".deleteButton", function() {
-    orders.deleteOrder(this.id);
+    pizzaOrder.deleteOrder(this.id);
     $("#show-orders").hide();
-    displayOrderDetails(orders);
+    displayOrderDetails(pizzaOrder);
   });
 };
 
 function showOrders(ordersId) {
   var order = pizzaOrder.findOrder(ordersId);
   $("show-orders").show();
-  $(".pizza-size").html(order.size);
+  $(".pizza-size").html(order.size + " Size");
   $(".pizza-crust").html(order.crust);
   $(".pizza-type").html(order.type);
   $(".item").html(order.item);
-  $(".total").html(order.total);
+  $(".total").html("$ " + order.price);
   var buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + order.id + ">Delete Order</button>")
@@ -140,6 +140,7 @@ $(document).ready(function() {
     newOrder.findPriceByCrust();
     newOrder.findPriceByType();
     newOrder.findPriceByItem();
+    console.log(newOrder.price);
     pizzaOrder.addOrder(newOrder);
     displayOrderDetails(pizzaOrder);
     console.log(newOrder);

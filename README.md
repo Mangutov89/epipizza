@@ -15,6 +15,16 @@ _This is a webpage that takes in a users pizza order based on the size of pizza,
 * _The inputs will be used to determine price for Pizza._
 * _The UI will be able to toggle pizza's submitted for ordered._
 * _User will be able to delete pizza._
+* _Takes user input for pizza and displays orders._
+    * _Example Input: Small Pizza, Normal Crust, Pepperoni, and Ice Cream._
+    * _Example Output: Small Pizza Pepperoni_
+* _User then can click on order to display full details and price and whether or not they want to delete it._
+    * _Example Input: Click on Small Pizza Pepperoni._
+    * _Example Output: Pizza Size: Small Size_
+                       _Crust: Normal_
+                       _Pizza Type: Pepperoni_
+                       _Item: Ice Cream_
+                       _Total: $ 18_
 
 ## Setup/Installation Requirements
 
